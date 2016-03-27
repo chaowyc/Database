@@ -1,0 +1,24 @@
+\select_{name = 'Amy' or name = 'Ben'}Drinker;
+Output schema: (name text, address text)
+-----
+Amy|100 W. Main Street
+Ben|101 W. Main Street
+-----
+Total number of rows: 2
+
+\select_{bar = 'Talk of the Town'}Serves;
+Output schema: (bar text, beer text, price float)
+-----
+Talk of the Town|Amstel|2.5
+Talk of the Town|Budweiser|2.2
+-----
+Total number of rows: 2
+
+\project_{bar, beer} \select_{bar='Talk of the Town'}Serves;
+Output schema: (bar text, beer text)
+-----
+Talk of the Town|Amstel
+Talk of the Town|Budweiser
+-----
+Total number of rows: 2
+

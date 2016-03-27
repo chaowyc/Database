@@ -1,0 +1,69 @@
+\select_{name = 'Amy' or name = 'Ben'}Drinker;
+Output schema: (name text, address text)
+-----
+Amy|100 W. Main Street
+Ben|101 W. Main Street
+-----
+Total number of rows: 2
+
+\select_{bar = 'Talk of the Town'}Serves;
+Output schema: (bar text, beer text, price float)
+-----
+Talk of the Town|Amstel|2.5
+Talk of the Town|Budweiser|2.2
+-----
+Total number of rows: 2
+
+\project_{bar, beer} \select_{bar='Talk of the Town'}Serves;
+Output schema: (bar text, beer text)
+-----
+Talk of the Town|Amstel
+Talk of the Town|Budweiser
+-----
+Total number of rows: 2
+
+\select_{name = 'Amy' or name = 'Ben'}Drinker;
+Output schema: (name text, address text)
+-----
+Amy|100 W. Main Street
+Ben|101 W. Main Street
+-----
+Total number of rows: 2
+
+\select_{bar = 'Talk of the Town'}Serves;
+Output schema: (bar text, beer text, price float)
+-----
+Talk of the Town|Amstel|2.5
+Talk of the Town|Budweiser|2.2
+-----
+Total number of rows: 2
+
+\project_{bar, beer} \select_{bar='Talk of the Town'}Serves;
+Output schema: (bar text, beer text)
+-----
+Talk of the Town|Amstel
+Talk of the Town|Budweiser
+-----
+Total number of rows: 2
+
+Drinker \join_{name = drinker} Frequents;
+Output schema: (name text, address text, drinker text, bar text, times_a_week integer)
+-----
+Amy|100 W. Main Street|Amy|James Joyce Pub|2
+Ben|101 W. Main Street|Ben|James Joyce Pub|1
+Ben|101 W. Main Street|Ben|Satisfaction|2
+Ben|101 W. Main Street|Ben|Talk of the Town|1
+Coy|200 S. Duke Street|Coy|Down Under Pub|1
+Coy|200 S. Duke Street|Coy|The Edge|1
+Dan|300 N. Duke Street|Dan|Down Under Pub|2
+Dan|300 N. Duke Street|Dan|James Joyce Pub|1
+Dan|300 N. Duke Street|Dan|Satisfaction|2
+Dan|300 N. Duke Street|Dan|Talk of the Town|2
+Dan|300 N. Duke Street|Dan|The Edge|1
+Eve|100 W. Main Street|Eve|James Joyce Pub|2
+-----
+Total number of rows: 12
+
+Unexceptected I/O error:
+java.io.IOException: Input/output error
+

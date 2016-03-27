@@ -1,0 +1,25 @@
+\project_{drinker}\select_{bar = 'James Joyce Pub'}Frequents \diff \project_{drinker}\select_{times_a_week < times_a_week1}(\select_{bar = 'James Joyce Pub'}Frequents \cross \rename_{drinker1, bar1, times_a_week1}\select_{bar = 'James Joyce Pub'}Frequents);
+Output schema: (drinker text)
+-----
+Amy
+Eve
+-----
+Total number of rows: 2
+
+\project_{beer}\select_{bar = 'James Joyce Pub'}Serves \diff \project_{beer}\select_{beer < beer1}(\select_{bar = 'James Joyce Pub'}Serves \cross \rename_{bar1, beer1, price1} \select_{bar = 'James Joyce Pub'}Serves);
+Output schema: (beer text)
+-----
+Erdinger
+-----
+Total number of rows: 1
+
+(\project_{drinker}Frequents) \diff \project_{drinker}((\project_{drinker, name}( Frequents \cross Bar)) \diff \project_{drinker, bar}Frequents);
+Output schema: (drinker text)
+-----
+Dan
+-----
+Total number of rows: 1
+
+\quit;
+Bye!
+
